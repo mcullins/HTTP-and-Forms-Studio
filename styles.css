@@ -1,0 +1,34 @@
+body {
+    background: seagreen;
+}
+
+label {
+    display: block;
+}
+
+.choices {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+}
+
+#button {
+    width: 180px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    height: 40px;
+}
+
+#textbox {
+    width: 180px;
+    height: 40px
+}
+
+#choiceList {
+    width: 180px;
+    text-align: center;
+}
+
+img {
+    width: 180px;
+}
+

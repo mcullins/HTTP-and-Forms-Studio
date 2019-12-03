@@ -2,18 +2,55 @@
 
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script>
-		// TODO: create a handler
+		function setSearchEngine(event){
+			let allEngines = document.getElementsByName("engine");
+			let searchParam = document.querySelector("input[name=q]").value;
+			let engineChoice = false;
+			for (let i = 0; i < allEngines.length; i++){
+				if(allEngines[i].checked === true){
+					engineChoice = true;
+				}
+			}
+
+			if(!engineChoice || searchParam === "" ){
+				alert("Must enter search value and search engine choice!");
+			} else {
+			let engine = document.querySelector("input[name=engine]:checked").value;
+			let actions = {
+				"google": "https://google.com/search",
+				"duckDuckGo": "https://duckduckgo.com",
+				"bing": "https://www.bing.com/search",
+				"ask": "https://www.ask.com/web"
+			}
+			
+			let form = document.getElementById("searchForm");
+			form.setAttribute('action', actions[engine]);
+			}
+		}
+
     window.addEventListener("load", function(){
-        // TODO: register the handler
+        let form = document.getElementById("searchForm");
+		form.addEventListener("submit", setSearchEngine);
     });
+
 	</script>
 </head>
 
 <body>
-
-	<form id="searchForm">
-    <!-- TODO: add form elements -->
-	</form>
+	<div id="spacing">
+		<form id="searchForm">
+			<input type="text" name="q" id="textbox"/>
+			<div id="choiceList">
+				<label class="choices">Google<input type="radio" name="engine" value="google"/></label>
+				<label class="choices">DuckDuckGo<input type="radio" name="engine" value="duckDuckGo"/></label>
+				<label class="choices">Bing<input type="radio" name="engine" value="bing"/></label>
+				<label class="choices">Ask<input type="radio" name="engine" value="ask" /></label>
+			</div>
+			<input type="submit" value="Go!" id="button"/>
+		</form>
+	</div>
+	<img src="SearchImg.png" alt="Magnifying glass over world" >
 
 </body>
